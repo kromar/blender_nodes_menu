@@ -23,7 +23,7 @@ bl_info = {
     "name": "Nodes Menu",
     "description": "",
     "author": "kromar",
-    "version": (1, 0, 0),
+    "version": (1, 0, 1),
     "blender": (2, 80, 0),
     "location": "NODE_EDITOR",
     "category": "System"
@@ -31,11 +31,11 @@ bl_info = {
 
 
 def register():
-    bpy.types.NODE_HT_header.append(nodeitems_utils.draw_node_categories_menu)
+    bpy.types.NODE_PT_active_node_generic.prepend(nodeitems_utils.draw_node_categories_menu)
 
 
 def unregister():
-    bpy.types.NODE_HT_header.remove(nodeitems_utils.draw_node_categories_menu)
+    bpy.types.NODE_PT_active_node_generic.remove(nodeitems_utils.draw_node_categories_menu)
 
 
 if __name__ == "__main__":
